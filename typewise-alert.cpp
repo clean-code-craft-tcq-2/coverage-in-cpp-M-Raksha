@@ -10,7 +10,8 @@ void sendToController(BreachType breachType)
 void sendToEmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
- printf("hi %s\n",BreachTypeToAlertMsgMap[breachType]);
+  printf("To: %s\n", recepient);
+  printf("hi %s\n",BreachTypeToAlertMsgMap[breachType]);
 }
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
@@ -29,7 +30,6 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC)
 {
-    
     return inferBreach(temperatureInC, mapTempratureLimtsToCoolingtype[coolingType].at(0), mapTempratureLimtsToCoolingtype[coolingType].at(1));
 }
 
