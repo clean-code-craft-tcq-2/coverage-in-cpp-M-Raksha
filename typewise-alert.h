@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+#include <map>
+using std::map;
+
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
