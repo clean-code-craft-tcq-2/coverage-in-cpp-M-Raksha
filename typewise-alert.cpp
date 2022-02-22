@@ -1,4 +1,5 @@
 #include "typewise-alert.h"
+#include "typewisealertmap.h"
 #include <stdio.h>
 
 void sendToController(BreachType breachType) 
