@@ -26,3 +26,38 @@ TEST_CASE("classifies and infers temperature breachs accoring to coolingtype ")
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,25) == NORMAL);
  
 }
+
+TEST_CASE("check and alert the respective target")
+{
+   BatteryCharacter BatteryChar;
+   
+  BatteryChar.coolingType = PASSIVE_COOLING;
+  checkAndAlert(TO_EMAIL, BatteryChar, -12 );
+  checkAndAlert(TO_EMAIL, BatteryChar, 40 );
+  checkAndAlert(TO_EMAIL, BatteryChar, 25 );
+  
+  checkAndAlert(TO_CONTROLLER, BatteryChar, -12 );
+  checkAndAlert(TO_CONTROLLER, BatteryChar, 40 );
+  checkAndAlert(TO_CONTROLLER, BatteryChar, 25 );
+  
+  
+   BatteryChar.coolingType = HI_ACTIVE_COOLING;
+  checkAndAlert(TO_EMAIL, BatteryChar, -12 );
+  checkAndAlert(TO_EMAIL, BatteryChar, 56 );
+  checkAndAlert(TO_EMAIL, BatteryChar, 25 );
+  
+  checkAndAlert(TO_CONTROLLER, BatteryChar, -12 );
+  checkAndAlert(TO_CONTROLLER, BatteryChar, 56 );
+  checkAndAlert(TO_CONTROLLER, BatteryChar, 25 );
+
+
+BatteryChar.coolingType = MED_ACTIVE_COOLING;
+  checkAndAlert(TO_EMAIL, BatteryChar, -12 );
+  checkAndAlert(TO_EMAIL, BatteryChar, 42 );
+  checkAndAlert(TO_EMAIL, BatteryChar, 25 );
+  
+  checkAndAlert(TO_CONTROLLER, BatteryChar, -12 );
+  checkAndAlert(TO_CONTROLLER, BatteryChar, 42 );
+  checkAndAlert(TO_CONTROLLER, BatteryChar, 25 );
+
+}
